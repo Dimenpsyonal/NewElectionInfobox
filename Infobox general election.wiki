@@ -1,0 +1,1184 @@
+<includeonly>{{#invoke:infobox|infoboxTemplate
+| templatestyles = Infobox election/styles.css
+| child templatestyles = Screen reader-only/styles.css<!-- for /row template -->
+| child     = {{{child|{{{embed|}}}}}}
+| bodyclass = ib-election infobox-table {{#if:{{{election_date|}}}|vevent|}}
+| bodystyle = {{#if:<!--
+ -->{{{map_image|}}}{{{map|}}}{{{map2_image|}}}{{{map2|}}}{{{map3_image|}}}{{{map3|}}}{{{map4_image|}}}{{{map4|}}}<!--
+ -->|width:{{#invoke:Math|min
+| 1=300
+| 2={{#invoke:Math|max
+| 1 = {{#if:{{{map_image|}}}{{{map|}}}|{{#invoke:string|replace|{{#invoke:if empty|main|{{{map_size|}}}|300}}|px%s*$||plain=false}}}}
+| 2 = {{#if:{{{map2_image|}}}{{{map2|}}}|{{#invoke:string|replace|{{#invoke:if empty|main|{{{map2_size|}}}|300}}|px%s*$||plain=false}}}}
+| 3 = {{#if:{{{map3_image|}}}{{{map3|}}}|{{#invoke:string|replace|{{#invoke:if empty|main|{{{map3_size|}}}|300}}|px%s*$||plain=false}}}}
+| 4 = {{#if:{{{map4_image|}}}{{{map4|}}}|{{#invoke:string|replace|{{#invoke:if empty|main|{{{map4_size|}}}|300}}|px%s*$||plain=false}}}}
+}}}}px}}
+| titleclass = summary
+| title = {{#ifeq:{{{child|{{{embed|}}}}}}|yes|{{#if:{{{election_name|}}}|<div style="background-color:#ddd; font-size:120%; font-weight:bold">{{{election_name}}}</div>}}|{{{election_name|{{PAGENAME}}}}}}}
+
+| subheader1 = {{#if:{{{flag_image|}}}
+  |{{#invoke:InfoboxImage|InfoboxImage|image={{{flag_image|}}}|size=50px|alt=|link=}}<hr />
+  |{{#ifexist:Template:Country data {{#invoke:if empty|main|{{{country|}}}|¬}}|{{#invoke:flag|deco|{{{country}}}|variant={{{flag_year|}}}|size=50px|noredlink={{#ifeq:{{NAMESPACE}}|{{ns:0}}||yes}}|frameonly=true}}<hr />}}
+ }}
+| subheader2 =  {{#if:{{{previous_year|}}}{{{election_date|}}}{{{next_year|}}}| 
+ {{succession links|leftstyle=width:20%;|centerstyle = width:60%;|rightstyle=width:20%;
+   | left ={{#if:{{{previous_year|}}}|{{#ifexist:{{{previous_election|}}}|[[{{{previous_election}}}|{{{previous_year}}}]]|{{{previous_year}}}}}}}
+   | center = {{#if:{{{election_date|}}}|'''{{{election_date}}}'''}}
+   | right = {{#if:{{{next_year|}}}|{{#ifexist:{{{next_election|}}}|[[{{{next_election}}}|{{{next_year}}}]]|{{{next_year}}}}}}}
+   }}
+}}
+| subheader3 =  {{#if:{{{previous_seat_year|}}}{{{next_seat_year|}}}| 
+ {{succession links|leftstyle=width:35%; text-align:center;|rightstyle=width:35%; text-align:center;
+   | left ={{#if:{{{previous_seat_year|}}}|{{#ifexist:{{{previous_seat_election|}}}|[[{{{previous_seat_election}}}|{{{previous_seat_year}}}]]|{{{previous_seat_year}}}}}}}
+   | right = {{#if:{{{next_seat_year|}}}|{{#ifexist:{{{next_seat_election|}}}|[[{{{next_seat_election}}}|{{{next_seat_year}}}]]|{{{next_seat_year}}}}}}}
+   }}
+}}
+| subheader4 = 
+{{#if:{{{outgoing_members|}}}{{{elected_members|}}}|
+{{succession links|leftstyle=width:40%; text-align:center;|rightstyle=width:40%; text-align:center;
+ | left = {{#if:{{{outgoing_members|{{{previous_mps|}}}}}}|{{#ifexist:{{{outgoing_members|}}}|[[{{{outgoing_members|}}}|outgoing members]]|{{{outgoing_members|}}}}}}}
+ | right = {{#if:{{{elected_members|}}}|{{#ifexist:{{{elected_members|}}}|[[{{{elected_members|}}}|elected members]]|{{{elected_members|}}}}}|}}
+ }}
+}}
+
+| header1 = 
+{{#switch:{{lc:{{{type|}}}}}
+| primary
+| presidential = {{#if:{{{votes_for_election|}}}|<hr />{{{votes_for_election}}}{{#if:{{{needed_votes|}}}|<br />{{{needed_votes}}} votes needed to win}}
+}}
+| parliamentary
+| legislative
+| by-election   = {{#if:{{{seats_for_election|}}}|<hr />{{{seats_for_election}}}{{#if:{{{majority_seats|}}}|<br />{{{majority_seats}}} seats needed for a majority}}
+}}
+| #default      = 
+}}
+| data2 = {{#if:{{{opinion_polls|}}}| [[{{{opinion_polls}}}|Opinion&nbsp;polls]] }}
+
+| label3 = Registered
+| data3 = {{{registered|}}}
+
+| label4 = Turnout
+| data4 = {{{turnout|}}}
+
+| label5 = Votes&nbsp;counted
+| data5 = {{#if:{{{votes_counted|}}}|<div class="center" style="width:auto;margin-left:auto;margin-right:auto;">{{Percentage bar|{{{votes_counted}}}|{{{votes_counted}}}%|1BCE0E}}</div>as of '''{{{last_update}}} {{{time_zone}}}''' }}
+
+| label6 = Reporting
+| data6 = {{#if:{{{reporting|}}}|<div class="center" style="width:auto;margin-left:auto;margin-right:auto;">{{Percentage bar|{{{reporting}}}|{{{reporting}}}%|1BCE0E}}</div>as of '''{{{last_update}}} {{{time_zone}}}''' }}
+
+| label7 = Declared
+| data7 = {{#if:{{{declared|}}}|<div class="center" style="width:auto;margin-left:auto;margin-right:auto;">{{Percentage bar|{{{declared}}}|{{{declared}}}%|1BCE0E}}</div>as of '''{{{last_update}}} {{{time_zone}}}''' }}
+
+| data10 =  <nowiki />
+{{(!}} style="background:transparent; color: inherit; width:100%;"
+{{!}}-
+{{Infobox general election/candidate
+ |noimage = {{{noimage|}}}
+ |image = {{{image1|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti1|}}}|color}}
+ |candidat = {{{candidat1|}}}
+ |colistier = {{{colistier1|}}}
+ |sexe = {{{sexe1|}}}
+ |parti = {{{parti1|}}}
+ |coalition = {{{coalition1|}}}
+ |parti1 coalition = {{{parti1 coalition1|}}}
+ |parti2 coalition = {{{parti2 coalition1|}}}
+ |parti3 coalition = {{{parti3 coalition1|}}}
+ |parti4 coalition = {{{parti4 coalition1|}}}
+ |parti5 coalition = {{{parti5 coalition1|}}}
+ |parti6 coalition = {{{parti6 coalition1|}}}
+ |parti7 coalition = {{{parti7 coalition1|}}}
+ |chef = {{{chef1|}}}
+ |vote électoral = {{{vote électoral1|}}}
+ |vote électoral pré = {{{vote électoral1 pré|}}}
+ |votes = {{{votes1|}}}
+ |votes pré = {{{votes1 pré|}}}
+ |votes2v = {{{votes2v1|}}}
+ |votes2v pré = {{{votes2v1 pré|}}}
+ |pourcentage = {{{pourcentage1|}}}
+ |pourcentage2v = {{{pourcentage2v1|}}}
+ |pourcentage pré = {{{pourcentage1 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v1 pré|}}}
+ |percentchange = {{{swing1|}}}
+ |percentchange2 = {{{swing1_finalround|}}}
+ |seatchange = {{{seatchange1|}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges1|}}}
+ |sièges pré = {{{sièges1 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus1|{{{{{{nom élus|}}}1|}}} }}}
+ |élus pré = {{{élus1 pré|{{{{{{nom élus|}}}1 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}1|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}1 pré|}}}
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Second candidate
+
+-->{{Infobox general election/candidate
+ |noimage = {{{noimage|}}}
+ |image = {{{image2|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti2|}}}|color}}
+ |candidat = {{{candidat2|}}}
+ |colistier = {{{colistier2|}}}
+ |sexe = {{{sexe2|}}}
+ |parti = {{{parti2|}}}
+ |coalition = {{{coalition2|}}}
+ |parti1 coalition = {{{parti1 coalition2|}}}
+ |parti2 coalition = {{{parti2 coalition2|}}}
+ |parti3 coalition = {{{parti3 coalition2|}}}
+ |parti4 coalition = {{{parti4 coalition2|}}}
+ |parti5 coalition = {{{parti5 coalition2|}}}
+ |parti6 coalition = {{{parti6 coalition2|}}}
+ |parti7 coalition = {{{parti7 coalition2|}}}
+ |chef = {{{chef2|}}}
+ |vote électoral = {{{vote électoral2|}}}
+ |vote électoral pré = {{{vote électoral2 pré|}}}
+ |votes = {{{votes2|}}}
+ |votes pré = {{{votes2 pré|}}}
+ |votes2v = {{{votes2v2|}}}
+ |votes2v pré = {{{votes2v2 pré|}}}
+ |pourcentage = {{{pourcentage2|}}}
+ |pourcentage2v = {{{pourcentage2v2|}}}
+ |pourcentage pré = {{{pourcentage2 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v2 pré|}}}
+ |percentchange = {{{swing2|}}}
+ |percentchange2 = {{{swing2_finalround|}}}
+ |seatchange = {{{seatchange2|}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges2|}}}
+ |sièges pré = {{{sièges2 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus2|{{{{{{nom élus|}}}2|}}} }}}
+ |élus pré = {{{élus2 pré|{{{{{{nom élus|}}}2 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}2|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}2 pré|}}}
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Troisième candidature
+
+-->{{Infobox general election/candidate
+ |noimage = {{{noimage|}}}
+ |image = {{{image3|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti3|}}}|color}}
+ |candidat = {{{candidat3|}}}
+ |colistier = {{{colistier3|}}}
+ |sexe = {{{sexe3|}}}
+ |parti = {{{parti3|}}}
+ |coalition = {{{coalition3|}}}
+ |parti1 coalition = {{{parti1 coalition3|}}}
+ |parti2 coalition = {{{parti2 coalition3|}}}
+ |parti3 coalition = {{{parti3 coalition3|}}}
+ |parti4 coalition = {{{parti4 coalition3|}}}
+ |parti5 coalition = {{{parti5 coalition3|}}}
+ |parti6 coalition = {{{parti6 coalition3|}}}
+ |parti7 coalition = {{{parti7 coalition3|}}}
+ |chef = {{{chef3|}}}
+ |vote électoral = {{{vote électoral3|}}}
+ |vote électoral pré = {{{vote électoral3 pré|}}}
+ |votes = {{{votes3|}}}
+ |votes pré = {{{votes3 pré|}}}
+ |votes2v = {{{votes2v3|}}}
+ |votes2v pré = {{{votes2v3 pré|}}}
+ |pourcentage = {{{pourcentage3|}}}
+ |pourcentage2v = {{{pourcentage2v3|}}}
+ |pourcentage pré = {{{pourcentage3 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v3 pré|}}}
+ |percentchange = {{{swing3|}}}
+ |percentchange2 = {{{swing3_finalround|}}}
+ |seatchange = {{{seatchange3|}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges3|}}}
+ |sièges pré = {{{sièges3 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus3|{{{{{{nom élus|}}}3|}}} }}}
+ |élus pré = {{{élus3 pré|{{{{{{nom élus|}}}3 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}3|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}3 pré|}}}
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Quatrième candidature
+
+-->{{Infobox general election/candidate
+ |noimage = {{{noimage|}}}
+ |image = {{{image4|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti4|}}}|color}}
+ |candidat = {{{candidat4|}}}
+ |colistier = {{{colistier4|}}}
+ |sexe = {{{sexe4|}}}
+ |parti = {{{parti4|}}}
+ |coalition = {{{coalition4|}}}
+ |parti1 coalition = {{{parti1 coalition4|}}}
+ |parti2 coalition = {{{parti2 coalition4|}}}
+ |parti3 coalition = {{{parti3 coalition4|}}}
+ |parti4 coalition = {{{parti4 coalition4|}}}
+ |parti5 coalition = {{{parti5 coalition4|}}}
+ |parti6 coalition = {{{parti6 coalition4|}}}
+ |parti7 coalition = {{{parti7 coalition4|}}}
+ |chef = {{{chef4|}}}
+ |vote électoral = {{{vote électoral4|}}}
+ |vote électoral pré = {{{vote électoral4 pré|}}}
+ |votes = {{{votes4|}}}
+ |votes pré = {{{votes4 pré|}}}
+ |votes2v = {{{votes2v4|}}}
+ |votes2v pré = {{{votes2v4 pré|}}}
+ |pourcentage = {{{pourcentage4|}}}
+ |pourcentage2v = {{{pourcentage2v4|}}}
+ |pourcentage pré = {{{pourcentage4 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v4 pré|}}}
+ |percentchange = {{{swing4|}}}
+ |percentchange2 = {{{swing4_finalround|}}}
+ |seatchange = {{{seatchange4|}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges4|}}}
+ |sièges pré = {{{sièges4 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus4|{{{{{{nom élus|}}}4|}}} }}}
+ |élus pré = {{{élus4 pré|{{{{{{nom élus|}}}4 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}4|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}4 pré|}}}
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Cinquième candidature
+
+-->{{Infobox general election/candidate
+ |noimage = {{{noimage|}}}
+ |image = {{{image5|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti5|}}}|color}}
+ |candidat = {{{candidat5|}}}
+ |colistier = {{{colistier5|}}}
+ |sexe = {{{sexe5|}}}
+ |parti = {{{parti5|}}}
+ |coalition = {{{coalition5|}}}
+ |parti1 coalition = {{{parti1 coalition5|}}}
+ |parti2 coalition = {{{parti2 coalition5|}}}
+ |parti3 coalition = {{{parti3 coalition5|}}}
+ |parti4 coalition = {{{parti4 coalition5|}}}
+ |parti5 coalition = {{{parti5 coalition5|}}}
+ |parti6 coalition = {{{parti6 coalition5|}}}
+ |parti7 coalition = {{{parti7 coalition5|}}}
+ |chef = {{{chef5|}}}
+ |vote électoral = {{{vote électoral5|}}}
+ |vote électoral pré = {{{vote électoral5 pré|}}}
+ |votes = {{{votes5|}}}
+ |votes pré = {{{votes5 pré|}}}
+ |votes2v = {{{votes2v5|}}}
+ |votes2v pré = {{{votes2v5 pré|}}}
+ |pourcentage = {{{pourcentage5|}}}
+ |pourcentage2v = {{{pourcentage2v5|}}}
+ |pourcentage pré = {{{pourcentage5 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v5 pré|}}}
+ |percentchange = {{{swing5|}}}
+ |percentchange2 = {{{swing5_finalround|}}}
+ |seatchange = {{{seatchange5|}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges5|}}}
+ |sièges pré = {{{sièges5 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus5|{{{{{{nom élus|}}}5|}}} }}}
+ |élus pré = {{{élus5 pré|{{{{{{nom élus|}}}5 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}5|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}5 pré|}}}
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Sixième candidature
+
+-->{{Infobox general election/candidate
+ |noimage = {{{noimage|}}}
+ |image = {{{image6|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti6|}}}|color}}
+ |candidat = {{{candidat6|}}}
+ |colistier = {{{colistier6|}}}
+ |sexe = {{{sexe6|}}}
+ |parti = {{{parti6|}}}
+ |coalition = {{{coalition6|}}}
+ |parti1 coalition = {{{parti1 coalition6|}}}
+ |parti2 coalition = {{{parti2 coalition6|}}}
+ |parti3 coalition = {{{parti3 coalition6|}}}
+ |parti4 coalition = {{{parti4 coalition6|}}}
+ |parti5 coalition = {{{parti5 coalition6|}}}
+ |parti6 coalition = {{{parti6 coalition6|}}}
+ |parti7 coalition = {{{parti7 coalition6|}}}
+ |chef = {{{chef6|}}}
+ |vote électoral = {{{vote électoral6|}}}
+ |vote électoral pré = {{{vote électoral6 pré|}}}
+ |votes = {{{votes6|}}}
+ |votes pré = {{{votes6 pré|}}}
+ |votes2v = {{{votes2v6|}}}
+ |votes2v pré = {{{votes2v6 pré|}}}
+ |pourcentage = {{{pourcentage6|}}}
+ |pourcentage2v = {{{pourcentage2v6|}}}
+ |pourcentage pré = {{{pourcentage6 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v6 pré|}}}
+ |percentchange = {{{swing6|}}}
+ |percentchange2 = {{{swing6_finalround|}}}
+ |seatchange = {{{seatchange6|}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges6|}}}
+ |sièges pré = {{{sièges6 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus6|{{{{{{nom élus|}}}6|}}} }}}
+ |élus pré = {{{élus6 pré|{{{{{{nom élus|}}}6 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}6|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}6 pré|}}}
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Septième candidature
+
+-->{{Infobox general election/candidate
+ |noimage = {{{noimage|}}}
+ |image = {{{image7|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti7|}}}|color}}
+ |candidat = {{{candidat7|}}}
+ |colistier = {{{colistier7|}}}
+ |sexe = {{{sexe7|}}}
+ |parti = {{{parti7|}}}
+ |coalition = {{{coalition7|}}}
+ |parti1 coalition = {{{parti1 coalition7|}}}
+ |parti2 coalition = {{{parti2 coalition7|}}}
+ |parti3 coalition = {{{parti3 coalition7|}}}
+ |parti4 coalition = {{{parti4 coalition7|}}}
+ |parti5 coalition = {{{parti5 coalition7|}}}
+ |parti6 coalition = {{{parti6 coalition7|}}}
+ |parti7 coalition = {{{parti7 coalition7|}}}
+ |chef = {{{chef7|}}}
+ |vote électoral = {{{vote électoral7|}}}
+ |vote électoral pré = {{{vote électoral7 pré|}}}
+ |votes = {{{votes7|}}}
+ |votes pré = {{{votes7 pré|}}}
+ |votes2v = {{{votes2v7|}}}
+ |votes2v pré = {{{votes2v7 pré|}}}
+ |pourcentage = {{{pourcentage7|}}}
+ |pourcentage2v = {{{pourcentage2v7|}}}
+ |pourcentage pré = {{{pourcentage7 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v7 pré|}}}
+ |percentchange = {{{swing7|}}}
+ |percentchange2 = {{{swing7_finalround|}}}
+ |seatchange = {{{seatchange7|}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges7|}}}
+ |sièges pré = {{{sièges7 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus7|{{{{{{nom élus|}}}7|}}} }}}
+ |élus pré = {{{élus7 pré|{{{{{{nom élus|}}}7 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}7|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}7 pré|}}}
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Huitième candidature
+
+-->{{Infobox general election/candidate
+ |image = {{{image8|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti8|}}}|color}}
+ |candidat = {{{candidat8|}}}
+ |colistier = {{{colistier8|}}}
+ |sexe = {{{sexe8|}}}
+ |parti = {{{parti8|}}}
+ |coalition = {{{coalition8|}}}
+ |parti1 coalition = {{{parti1 coalition8|}}}
+ |parti2 coalition = {{{parti2 coalition8|}}}
+ |parti3 coalition = {{{parti3 coalition8|}}}
+ |parti4 coalition = {{{parti4 coalition8|}}}
+ |parti5 coalition = {{{parti5 coalition8|}}}
+ |parti6 coalition = {{{parti6 coalition8|}}}
+ |parti7 coalition = {{{parti7 coalition8|}}}
+ |chef = {{{chef8|}}}
+ |vote électoral = {{{vote électoral8|}}}
+ |vote électoral pré = {{{vote électoral8 pré|}}}
+ |votes = {{{votes8|}}}
+ |votes pré = {{{votes8 pré|}}}
+ |votes2v = {{{votes2v8|}}}
+ |votes2v pré = {{{votes2v8 pré|}}}
+ |pourcentage = {{{pourcentage8|}}}
+ |pourcentage2v = {{{pourcentage2v8|}}}
+ |pourcentage pré = {{{pourcentage8 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v8 pré|}}}
+ |percentchange = {{{swing8|}}}
+ |percentchange2 = {{{swing8_finalround|}}}
+ |seatchange = {{{seatchange8|}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges8|}}}
+ |sièges pré = {{{sièges8 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus8|{{{{{{nom élus|}}}8|}}} }}}
+ |élus pré = {{{élus8 pré|{{{{{{nom élus|}}}8 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}8|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}8 pré|}}}
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Neuvième candidature
+
+-->{{Infobox general election/candidate
+ |noimage = {{{noimage|}}}
+ |image = {{{image9|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti9|}}}|color}}
+ |candidat = {{{candidat9|}}}
+ |colistier = {{{colistier9|}}}
+ |sexe = {{{sexe9|}}}
+ |parti = {{{parti9|}}}
+ |coalition = {{{coalition9|}}}
+ |parti1 coalition = {{{parti1 coalition9|}}}
+ |parti2 coalition = {{{parti2 coalition9|}}}
+ |parti3 coalition = {{{parti3 coalition9|}}}
+ |parti4 coalition = {{{parti4 coalition9|}}}
+ |parti5 coalition = {{{parti5 coalition9|}}}
+ |parti6 coalition = {{{parti6 coalition9|}}}
+ |parti7 coalition = {{{parti7 coalition9|}}}
+ |chef = {{{chef9|}}}
+ |vote électoral = {{{vote électoral9|}}}
+ |vote électoral pré = {{{vote électoral9 pré|}}}
+ |votes = {{{votes9|}}}
+ |votes pré = {{{votes9 pré|}}}
+ |votes2v = {{{votes2v9|}}}
+ |votes2v pré = {{{votes2v9 pré|}}}
+ |pourcentage = {{{pourcentage9|}}}
+ |pourcentage2v = {{{pourcentage2v9|}}}
+ |pourcentage pré = {{{pourcentage9 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v9 pré|}}}
+ |percentchange = {{{swing9|}}}
+ |percentchange2 = {{{swing9_finalround|}}}
+ |seatchange = {{{seatchange9}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges9|}}}
+ |sièges pré = {{{sièges9 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus9|{{{{{{nom élus|}}}9|}}} }}}
+ |élus pré = {{{élus9 pré|{{{{{{nom élus|}}}9 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}9|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}9 pré|}}}
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Dixième candidature
+
+-->{{Infobox general election/candidate
+ |noimage = {{{noimage|}}}
+ |image = {{{image10|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti10|}}}|color}}
+ |candidat = {{{candidat10|}}}
+ |colistier = {{{colistier10|}}}
+ |sexe = {{{sexe10|}}}
+ |parti = {{{parti10|}}}
+ |coalition = {{{coalition10|}}}
+ |parti1 coalition = {{{parti1 coalition10|}}}
+ |parti2 coalition = {{{parti2 coalition10|}}}
+ |parti3 coalition = {{{parti3 coalition10|}}}
+ |parti4 coalition = {{{parti4 coalition10|}}}
+ |parti5 coalition = {{{parti5 coalition10|}}}
+ |parti6 coalition = {{{parti6 coalition10|}}}
+ |parti7 coalition = {{{parti7 coalition10|}}}
+ |chef = {{{chef10|}}}
+ |vote électoral = {{{vote électoral10|}}}
+ |vote électoral pré = {{{vote électoral10 pré|}}}
+ |votes = {{{votes10|}}}
+ |votes pré = {{{votes10 pré|}}}
+ |votes2v = {{{votes2v10|}}}
+ |votes2v pré = {{{votes2v10 pré|}}}
+ |pourcentage = {{{pourcentage10|}}}
+ |pourcentage2v = {{{pourcentage2v10|}}}
+ |pourcentage pré = {{{pourcentage10 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v10 pré|}}}
+ |percentchange = {{{swing10|}}}
+ |percentchange2 = {{{swing10_finalround|}}}
+ |seatchange = {{{seatchange10|}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges10|}}}
+ |sièges pré = {{{sièges10 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus10|{{{{{{nom élus|}}}10|}}} }}}
+ |élus pré = {{{élus10 pré|{{{{{{nom élus|}}}10 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}10|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}10 pré|}}} 
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Onzième candidature
+
+-->{{Infobox general election/candidate
+ |noimage = {{{noimage|}}}
+ |image = {{{image11|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti11|}}}|color}}
+ |candidat = {{{candidat11|}}}
+ |colistier = {{{colistier11|}}}
+ |sexe = {{{sexe11|}}}
+ |parti = {{{parti11|}}}
+ |coalition = {{{coalition11|}}}
+ |parti1 coalition = {{{parti1 coalition11|}}}
+ |parti2 coalition = {{{parti2 coalition11|}}}
+ |parti3 coalition = {{{parti3 coalition11|}}}
+ |parti4 coalition = {{{parti4 coalition11|}}}
+ |parti5 coalition = {{{parti5 coalition11|}}}
+ |parti6 coalition = {{{parti6 coalition11|}}}
+ |parti7 coalition = {{{parti7 coalition11|}}}
+ |chef = {{{chef11|}}}
+ |vote électoral = {{{vote électoral11|}}}
+ |vote électoral pré = {{{vote électoral11 pré|}}}
+ |votes = {{{votes11|}}}
+ |votes pré = {{{votes11 pré|}}}
+ |votes2v = {{{votes2v11|}}}
+ |votes2v pré = {{{votes2v11 pré|}}}
+ |pourcentage = {{{pourcentage11|}}}
+ |pourcentage2v = {{{pourcentage2v11|}}}
+ |pourcentage pré = {{{pourcentage11 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v11 pré|}}}
+ |percentchange = {{{swing11|}}}
+ |percentchange2 = {{{swing11_finalround|}}}
+ |seatchange = {{{seatchange11|}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges11|}}}
+ |sièges pré = {{{sièges11 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus11|{{{{{{nom élus|}}}11|}}} }}}
+ |élus pré = {{{élus11 pré|{{{{{{nom élus|}}}11 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}11|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}11 pré|}}} 
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Douzième candidature
+
+-->{{Infobox general election/candidate
+ |noimage = {{{noimage|}}}
+ |image = {{{image12|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti12|}}}|color}}
+ |candidat = {{{candidat12|}}}
+ |colistier = {{{colistier12|}}}
+ |sexe = {{{sexe12|}}}
+ |parti = {{{parti12|}}}
+ |coalition = {{{coalition12|}}}
+ |parti1 coalition = {{{parti1 coalition12|}}}
+ |parti2 coalition = {{{parti2 coalition12|}}}
+ |parti3 coalition = {{{parti3 coalition12|}}}
+ |parti4 coalition = {{{parti4 coalition12|}}}
+ |parti5 coalition = {{{parti5 coalition12|}}}
+ |parti6 coalition = {{{parti6 coalition12|}}}
+ |parti7 coalition = {{{parti7 coalition12|}}}
+ |chef = {{{chef12|}}}
+ |vote électoral = {{{vote électoral12|}}}
+ |vote électoral pré = {{{vote électoral12 pré|}}}
+ |votes = {{{votes12|}}}
+ |votes pré = {{{votes12 pré|}}}
+ |votes2v = {{{votes2v12|}}}
+ |votes2v pré = {{{votes2v12 pré|}}}
+ |pourcentage = {{{pourcentage12|}}}
+ |pourcentage2v = {{{pourcentage2v12|}}}
+ |pourcentage pré = {{{pourcentage12 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v12 pré|}}}
+ |percentchange = {{{swing12|}}}
+ |percentchange2 = {{{swing12_finalround|}}}
+ |seatchange = {{{seatchange12|}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges12|}}}
+ |sièges pré = {{{sièges12 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus12|{{{{{{nom élus|}}}12|}}} }}}
+ |élus pré = {{{élus12 pré|{{{{{{nom élus|}}}12 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}12|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}12 pré|}}} 
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Treizième candidature
+
+-->{{Infobox general election/candidate
+ |noimage = {{{noimage|}}}
+ |image = {{{image13|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti13|}}}|color}}
+ |candidat = {{{candidat13|}}}
+ |colistier = {{{colistier13|}}}
+ |sexe = {{{sexe13|}}}
+ |parti = {{{parti13|}}}
+ |coalition = {{{coalition13|}}}
+ |parti1 coalition = {{{parti1 coalition13|}}}
+ |parti2 coalition = {{{parti2 coalition13|}}}
+ |parti3 coalition = {{{parti3 coalition13|}}}
+ |parti4 coalition = {{{parti4 coalition13|}}}
+ |parti5 coalition = {{{parti5 coalition13|}}}
+ |parti6 coalition = {{{parti6 coalition13|}}}
+ |parti7 coalition = {{{parti7 coalition13|}}}
+ |chef = {{{chef13|}}}
+ |vote électoral = {{{vote électoral13|}}}
+ |vote électoral pré = {{{vote électoral13 pré|}}}
+ |votes = {{{votes13|}}}
+ |votes pré = {{{votes13 pré|}}}
+ |votes2v = {{{votes2v13|}}}
+ |votes2v pré = {{{votes2v13 pré|}}}
+ |pourcentage = {{{pourcentage13|}}}
+ |pourcentage2v = {{{pourcentage2v13|}}}
+ |pourcentage pré = {{{pourcentage13 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v13 pré|}}}
+ |percentchange = {{{swing13|}}}
+ |percentchange2 = {{{swing13_finalround|}}}
+ |seatchange = {{{seatchange13|}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges13|}}}
+ |sièges pré = {{{sièges13 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus13|{{{{{{nom élus|}}}13|}}} }}}
+ |élus pré = {{{élus13 pré|{{{{{{nom élus|}}}13 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}13|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}13 pré|}}} 
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Quatorzième candidature
+
+-->{{Infobox general election/candidate
+ |noimage = {{{noimage|}}}
+ |image = {{{image14|}}}
+ |couleur = {{#invoke:Political party|fetch|{{{parti14|}}}|color}}
+ |candidat = {{{candidat14|}}}
+ |colistier = {{{colistier14|}}}
+ |sexe = {{{sexe14|}}}
+ |parti = {{{parti14|}}}
+ |coalition = {{{coalition14|}}}
+ |parti1 coalition = {{{parti1 coalition14|}}}
+ |parti2 coalition = {{{parti2 coalition14|}}}
+ |parti3 coalition = {{{parti3 coalition14|}}}
+ |parti4 coalition = {{{parti4 coalition14|}}}
+ |parti5 coalition = {{{parti5 coalition14|}}}
+ |parti6 coalition = {{{parti6 coalition14|}}}
+ |parti7 coalition = {{{parti7 coalition14|}}}
+ |chef = {{{chef14|}}}
+ |vote électoral = {{{vote électoral14|}}}
+ |vote électoral pré = {{{vote électoral14 pré|}}}
+ |votes = {{{votes14|}}}
+ |votes2v = {{{votes2v14|}}}
+ |votes pré = {{{votes14 pré|}}}
+ |votes2v pré = {{{votes2v14 pré|}}}
+ |pourcentage = {{{pourcentage14|}}}
+ |pourcentage2v = {{{pourcentage2v14|}}}
+ |pourcentage pré = {{{pourcentage14 pré|}}}
+ |pourcentage2v pré = {{{pourcentage2v14 pré|}}}
+ |percentchange = {{{swing14|}}}
+ |percentchange2 = {{{swing14_finalround|}}}
+ |seatchange = {{{seatchange14|}}}
+ |participation = {{{participation|}}}
+ |participation pré = {{{participation pré|}}}
+ |sièges = {{{sièges14|}}}
+ |sièges pré = {{{sièges14 pré|}}}
+ |nom élus = {{{nom élus|}}}
+ |nom élus féminin = {{{nom élus féminin|}}}
+ |élus = {{{élus 14|{{{{{{nom élus|}}}14|}}} }}}
+ |élus pré = {{{élus14 pré{{{{{{nom élus|}}}14 pré|}}} }}}
+ |nom élus2 = {{{nom élus2|}}}
+ |élus2 = {{{{{{nom élus2|}}}14|}}}
+ |élus2 pré = {{{{{{nom élus2|}}}14 pré|}}}
+ |deuxième tour = {{{votes2v1|}}}{{{pourcentage2v1|}}}
+ |année précédent scrutin = {{#if:{{Wikidata|property|P155|{{{date précédente|}}}|link=-}}
+                                   | {{#if:{{{date précédente|}}} | {{{date précédente|}}} | {{#if: {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d|nomatch=}}
+                                                                                                     | {{#invoke:string|match|{{Wikidata|property|P155|link=-}}|%d%d%d%d}}
+                                                                                             }}
+                                     }}
+                            }}
+}}<!--
+
+Map
+
+-->
+|-
+<div class="ib-legis-elect-disclaimer">{{#switch:{{{ongoing|}}}|counting|yes=|#default=This lists parties that won seats. See the complete results below.}}</div>}}<!--
+ -->{{#if:{{{carte|}}}|<table class="ib-legis-elect-map"><tr><td class="infobox-image">{{#invoke:InfoboxImage|InfoboxImage|image={{{carte|}}}|upright={{#if:{{{map_upright|}}}|{{{map_upright}}}|1.3}}|alt={{{map_alt|}}}}}{{#if:{{{map_caption|}}}|<div class="infobox-caption">{{{map_caption|}}}</div>}}</td></tr></table>
+}}
+<!--
+
+Diagramme
+
+-->
+|-
+<th colspan="{{{diagramme|}}}" style="padding:4px; text-align:center; background-color:{{dièse couleur web|{{{diagramme|}}}|E1E1E1}}; color:{{dièse couleur web|ccf|000000}}">{{trim|{{{diagramme titre|}}}}}</th></tr>
+<tr>
+<!--
+
+--><!--{{#if:{{{diagramme|}}}
+  |{{#ifexist: File:{{{diagramme|}}}
+     |{{Infobox/Image
+       |{{{diagramme|}}}
+       |
+       |{{{taille diagramme|200}}}
+       |Diagramme
+       |6
+       |
+       |Politique
+      }}
+     |{{#if:
+{{{diagramme|}}} | <td colspan="2" style="text-align:center;">{{{diagramme|}}}</td>
+</tr><tr>}}
+   }}
+}}--><!--
+
+-->{{#if:{{{légende1|}}}
+ | <nowiki/>
+{{!}}-
+{{!}} colspan={{#if:{{{légende2|}}}|"3"|"6"}} style="text-align:left;" {{!}} <div style="{{#if:{{{fond|}}}|background:{{{fond|}}};}}overflow:hidden;">{{{légende1}}}</div>
+}}<!--
+-->{{#if:{{{légende2|}}}
+ | <nowiki/>
+{{!}} colspan="3" {{!}} <div style="{{#if:{{{fond|}}}|background:{{{fond|}}};}} overflow:hidden;">{{{légende2}}}</div>
+}}<!--
+
+Diagramme2
+
+-->
+|-
+<th colspan="{{{diagramme2|}}}" style="padding:4px; text-align:center; background-color:{{dièse couleur web|{{{diagramme2|}}}|E1E1E1}}; color:{{dièse couleur web|ccf|000000}}">{{trim|{{{diagramme2 titre|}}}}}</th></tr>
+<tr>
+<!--
+
+--><!--{{#if:{{{diagramme2|}}}
+  |{{#ifexist: Media:{{{diagramme2|}}}
+     |{{Infobox/Image
+       |{{{diagramme2|}}}
+       |
+       |{{{taille diagramme2|200}}}
+       |Diagramme2
+       |6
+       |
+       |Élection générale
+      }}
+     |{{#if:
+{{{diagramme|}}} | <td colspan="2" style="text-align:center;">{{{diagramme|}}}</td>
+</tr><tr>}}
+   }}
+}}--><!--
+
+-->{{#if:{{{légende1 2|}}}
+ | <nowiki/>
+{{!}}-
+{{!}} colspan={{#if:{{{légende2 2|}}}|"3"|"6"}} style="text-align:left;" {{!}} <div style="{{#if:{{{fond|}}}|background:{{{fond|}}};}} overflow:hidden;">{{{légende1 2|}}}</div>
+}}<!--
+-->{{#if:{{{légende2 2|}}}
+ | <nowiki/>
+{{!}} colspan="3" {{!}} <div style="{{#if:{{{fond|}}}|background:{{{fond|}}};}} overflow: hidden;">{{{légende2 2|}}}</div>
+}}<!--
+
+Barres
+
+-->
+|-
+<th colspan="{{{titre barres|}}}" style="padding:4px; text-align:center; background-color:{{dièse couleur web|{{{titre barres|}}}|E1E1E1}}; color:{{dièse couleur web|ccf|000000}}">{{trim|{{{titre barres|}}}}}</th></tr>
+<tr>
+<!--
+
+-->{{#if:{{{barres1|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres1}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px; min-width:10em;"><div style="background: {{{couleur barres1|}}}; width: {{{pourcentage barres1|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres1|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres2|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres2}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres2|}}}; width: {{{pourcentage barres2|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres2|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres3|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres3}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres3|}}}; width: {{{pourcentage barres3|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres3|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres4|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres4}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres4|}}}; width: {{{pourcentage barres4|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres4|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres5|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres5}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres5}}}; width: {{{pourcentage barres5|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres5|}}}}}&#8239;%
+}}<!--
+
+BarreQ2
+
+-->
+|-
+<th colspan="{{{titre barresQ2|}}}" style="padding:4px; text-align:center; background-color:{{dièse couleur web|{{{titre barresQ2|}}}|E1E1E1}}; color:{{dièse couleur web|ccf|000000}}">{{trim|{{{titre barresQ2|}}}}}</th></tr>
+<tr>
+<!--
+
+-->{{#if:{{{barres1Q2|}}}
+ | <nowiki/>
+! colspan="2" {{!}}{{{barres1Q2}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres1Q2|}}}; width: {{{pourcentage barres1Q2|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres1Q2|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres2Q2|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres2Q2}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres2Q2|}}}; width: {{{pourcentage barres2Q2|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres2Q2|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres3Q2|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres3Q2}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres3Q2|}}}; width: {{{pourcentage barres3Q2|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres3Q2|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres4Q2|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres4Q2}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres4Q2|}}}; width: {{{pourcentage barres4Q2|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres4Q2|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres5Q2|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres5Q2}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres5Q2|}}}; width: {{{pourcentage barres5Q2|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres5Q2|}}}}}&#8239;%
+}}<!--
+
+BarresQ3
+
+-->
+|-
+<th colspan="{{{titre barresQ3|}}}" style="padding:4px; text-align:center; background-color:{{dièse couleur web|{{{titre barresQ3|}}}|E1E1E1}}; color:{{dièse couleur web|ccf|000000}}">{{trim|{{{titre barresQ3|}}}}}</th></tr>
+<tr>
+<!--
+
+-->{{#if:{{{barres1Q3|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres1Q3}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres1Q3|}}}; width: {{{pourcentage barres1Q3|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres1Q3|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres2Q3|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres2Q3}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres2Q3|}}}; width: {{{pourcentage barres2Q3|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres2Q3|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres3Q3|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres3Q3}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres3Q3|}}}; width: {{{pourcentage barres3Q3|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres3Q3|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres4Q3|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres4Q3}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres4Q3|}}}; width: {{{pourcentage barres4Q3|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres4Q3|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres5Q3|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres5Q3}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres5Q3|}}}; width: {{{pourcentage barres5Q3|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres5Q3|}}}}}&#8239;%
+}}<!--
+
+BarresQ4
+
+-->
+|-
+<th colspan="{{{titre barresQ4|}}}" style="padding:4px; text-align:center; background-color:{{dièse couleur web|{{{titre barresQ4|}}}|E1E1E1}}; color:{{dièse couleur web|ccf|000000}}">{{trim|{{{titre barresQ4|}}}}}</th></tr>
+<tr>
+<!--
+
+-->{{#if:{{{barres1Q4|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres1Q4}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres1Q4|}}}; width: {{{pourcentage barres1Q4|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres1Q4|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres2Q4|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres2Q4}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres2Q4|}}}; width: {{{pourcentage barres2Q4|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres2Q4|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres3Q4|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres3Q4}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres3Q4|}}}; width: {{{pourcentage barres3Q4|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres3Q4|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres4Q4|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres4Q4}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres4Q4|}}}; width: {{{pourcentage barres4Q4|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres4Q4|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres5Q4|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres5Q4}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres5Q4|}}}; width: {{{pourcentage barres5Q4|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres5Q4|}}}}}&#8239;%
+}}<!--
+
+BarresQ5
+
+-->
+|-
+<th colspan="{{{titre barresQ4|}}}" style="padding:4px; text-align:center; background-color:{{dièse couleur web|{{{titre barresQ4|}}}|E1E1E1}}; color:{{dièse couleur web|ccf|000000}}">{{trim|{{{titre barresQ4|}}}}}</th></tr>
+<tr>
+<!--
+
+-->{{#if:{{{barres1Q5|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres1Q5}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres1Q5|}}}; width: {{{pourcentage barres1Q5|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres1Q5|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres2Q5|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres2Q5}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres2Q5|}}}; width: {{{pourcentage barres2Q5|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres2Q5|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres3Q5|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres3Q5}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres3Q5|}}}; width: {{{pourcentage barres3Q5|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres3Q5|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres4Q5|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres4Q5}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres4Q5|}}}; width: {{{pourcentage barres4Q5|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres4Q5|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{barres5Q5|}}}
+ | <nowiki/>
+{{!}}-
+! colspan="2" {{!}}{{{barres5Q5}}}
+{{!}} colspan="3" {{!}}<div style="border: 1px solid black; padding:1px;"><div style="background: {{{couleur barres5Q5|}}}; width: {{{pourcentage barres5Q5|}}}%; overflow: hidden;">&emsp;</div></div>
+{{!}} style="text-align:right;" {{!}} {{formatnum:  {{{pourcentage barres5Q5|}}}}}&#8239;%
+}}<!--
+
+-->{{#if:{{{sous-titre barres|}}}
+ | <nowiki/>
+{{!}}-
+{{!}}colspan="6" style="text-align:center;"{{!}} {{{sous-titre barres|}}}
+}}<!--
+
+Post-election
+
+-->{{!)}}
+{{#if:{{{prédécesseur|}}}{{{parti prédécesseur|}}}{{wikidata|property|P991|{{{successeur|}}}|link=-}}{{{parti successeur|}}}
+ | <nowiki/>
+{{!}}-
+<th colspan="6" style="padding:4px; text-align:center; background-color:{{dièse couleur web|ccf|E1E1E1}}; color:{{dièse couleur web|000000}}">{{trim|{{wikidata|property|P541 |{{{poste|}}} | linkback=oui}}}}</th></tr>
+<tr>
+<!--
+
+-->
+{{!}}-
+{{!}} colspan="3" {{!}}<!--
+ -->{{#if:{{{prédécesseur|}}}{{{parti prédécesseur|}}}
+    | '''{{#if:{{{titre prédécesseur|}}}
+       | {{{titre prédécesseur|}}}
+       | {{#ifeq:{{{sexe prédécesseur|}}}|femme|Sortante|Sortant}}
+      }}'''
+   }}
+{{!}} colspan="3" style="text-align:right;" {{!}}<!--
+ -->{{#if:{{wikidata|property|P991|{{{successeur|}}}|link=-}}{{{parti successeur|}}}
+    | '''{{#if:{{{titre successeur|}}}
+       | {{{titre successeur|}}}
+       | {{#ifeq:{{{sexe successeur|}}}|femme|Élue|Élu}}
+      }}'''
+   }}<!--
+
+-->
+{{!}}-
+{{!}} colspan="3" {{!}}<!--
+ -->{{#if:{{{prédécesseur|}}}
+    | {{{prédécesseur}}}
+   }}<!--
+ -->{{#if:{{{parti prédécesseur|}}}
+    | {{#if:{{{prédécesseur|}}}
+       | {{espace}}<br/>
+      }}<small>{{{parti prédécesseur|}}}</small>
+   }}
+{{!}} colspan="3" style="text-align:right;" {{!}}<!--
+ -->{{#if:{{wikidata|property|P991|{{{successeur|}}}|link=-}}
+    |{{wikidata|property|P991|{{{successeur|}}}|addcat=true | linkback=oui}}
+   }}<!--
+ -->{{#if:{{{parti successeur|}}}
+    | {{#if:{{wikidata|property|P991|{{{successeur|}}}|link=-}}
+       | {{espace}}<br/>
+      }}<small>{{{parti successeur|}}}</small>
+   }}
+}}<!--
+
+-->
+|-
+{{#if: {{{sup contenu|}}} |
+<th colspan="6" style="padding:4px; text-align:center; background-color:{{dièse couleur web|ccf|E1E1E1}}; color:{{dièse couleur web|000000}}">{{trim|{{{sup entête|}}}}}</th></tr>
+<tr>}}
+{{#if:{{{sup contenu|}}} | 
+<td colspan="6" style="text-align:center;">{{{sup contenu|}}}</td>
+</tr><tr>}}
+{{#if: {{Wikidata|property|P856|{{{site web|}}}}} |
+<th colspan="5" style="padding:4px; text-align:center; background-color:{{dièse couleur web|ccf|E1E1E1}}; color:{{dièse couleur web||000000}}">{{trim|{{#if:{{{site web|}}}|{{{site web}}}|{{Wikidata|property|P856|text=Résultats officiels|linkback=oui}} }}}}</th></tr>
+<tr>}}
+<td class="navigation-only" colspan="6" style="border-top: 2px {{Dièse couleur web|ccf|#C5C9E6}} solid; font-size: 80%; background: inherit; color: inherit; text-align: right;"><span class="plainlinks" style="float:left;">[{{fullurl:{{FULLPAGENAME}}|veaction=edit&section=0}} Edit] - [{{fullurl:{{FULLPAGENAME}}|action=edit&section=0}} Source edit]</td></tr></includeonly><noinclude>{{documentation}}<!-- Add categories to the /doc subpage, not here! --></noinclude>
