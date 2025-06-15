@@ -1,0 +1,2 @@
+This is a Wikipedia template. .wiki files are Template modules. Infobox general election.wiki is the main file, on Wikipedia this is Template:Infobox general election, and it has a sub-template Template:Infobox general election/candidate which is also seen.
+This has been ported from French Wikipedia to English Wikipedia, so some templates may be non-extant in English Wikipedia that exist in French Wikipedia. Some have been replaced with the raw template code, some have not.
