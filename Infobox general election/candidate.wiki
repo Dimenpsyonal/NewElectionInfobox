@@ -1,0 +1,133 @@
+<includeonly>{{#if:{{{candidat|}}}{{{parti|}}}{{{chef|}}}
+ | <nowiki/>
+{{!}}-
+{{!}} colspan="6" {{!}} <div style="background:{{#if:{{{couleur|}}}|{{{couleur|}}}|#888}}; height:5px; overflow:hidden;"></div>
+{{!}}-
+! rowspan="{{#expr: 1 + {{#if:{{{parti1 coalition|}}}|1|0}} + {{#if:{{{pourcentage|}}}|1|0}} + {{#if:{{{pourcentage2v|}}}|1|0}} + {{#if:{{{votes|}}}|1|0}} + {{#if:{{{votes2v|}}}|1|0}} + {{#if:{{{vote électoral|}}}|1|0}} + {{#if:{{{sièges|}}}|1|{{#if:{{{sièges pré|}}}|1|0}}}} + {{#if:{{{élus|}}}|1|{{#if:{{{élus pré|}}}|1|0}}}} + {{#if:{{{élus2|}}}|1|{{#if:{{{élus2 pré|}}}|1|0}}}} }}" <!--
+--> style="width:54px; text-align:center; vertical-align:top;" {{!}} <!--
+-->{{#if:{{{image|}}}
+   | [[File:{{{image|}}}|48px|frameless]]
+   | <div style="width:48px; background:{{#if:{{{couleur|}}}|{{{couleur|}}}|#888}};">[[File:{{#switch:{{{sexe}}}
+      | homme = Transparent - replace this image male on Infobox lightgrey background.svg
+      | femme = Transparent - replace this image female on Infobox lightgrey background.svg
+      | #default = Transparent flag waving on Infobox grey background.svg
+     }}|48px|frameless]]</div>
+  }}<!--
+
+-->
+{{!}} colspan="5" style="line-height:1.5em;" {{!}} {{#if:{{{candidat|}}}
+   | <strong style="display:inline-block;">{{{candidat|}}}</strong>&nbsp;–
+  }} {{#if:{{{parti|}}}
+   | <strong style="display:inline-block;">{{{parti|}}}<!--
+  -->{{#if:{{{chef|}}}
+      | &nbsp;–</strong> <span style="display:inline-block;">{{{chef|}}}</span>
+      | </strong>
+     }}
+  }}{{#if:{{{colistier|}}}
+   | <br /> Colistier : {{{colistier|}}}
+  }}<!--
+
+-->{{#if:{{{parti1 coalition|}}}
+   | <nowiki/>
+{{!}}-
+{{!}} colspan="5" {{!}} {{#if:{{{parti2 coalition|}}}
+     |{{Collapsible list
+       |title   = {{{coalition|Alliance}}}
+       |1 ={{{parti1 coalition|}}}
+       |2 ={{{parti2 coalition|}}}
+       |3 ={{{parti3 coalition|}}}
+       |4 ={{{parti4 coalition|}}}
+       |5 ={{{parti5 coalition|}}}
+       |6 ={{{parti6 coalition|}}}
+       |7 ={{{parti7 coalition|}}}
+      }}
+     |{{{parti1 coalition}}}}}
+    }}<!--
+
+-->{{#if:{{{votes|}}}{{{vote électoral|}}}
+   | <nowiki/>
+{{!}}-
+{{!}} colspan="3" {{!}} {{#if:{{{deuxième tour|}}}
+     | {{nobr|First round votes}}
+     | Votes
+    }}
+{{!}} style="text-align:right;" {{!}} {{formatnum:{{#if:{{{votes|}}}|{{{votes|}}}|{{{vote électoral|}}} }} }}
+{{!}} 
+  }}<!--
+
+-->{{#if:{{{pourcentage|}}}
+   | <nowiki/>
+{{!}}-
+{{!}} colspan="4" style="border: 1px solid black; height:1em; position:relative;" {{!}} <span style="position:absolute; right:1px; text-shadow:1px 1px var(--color-inverted, white), -1px 1px var(--color-inverted, white), -1px -1px var(--color-inverted, white), 1px -1px var(--color-inverted, white);"><!--
+  -->{{formatnum:{{{pourcentage|}}}}}&#8239;%</span><div style="background:{{#if:{{{couleur|}}}|{{{couleur|}}}|#888}}; width:{{{pourcentage|}}}%; overflow:hidden;">&#8239;</div>
+{{!}} style="text-align:right; width:1px;" class="difference" {{!}} {{#if:{{{percentchange|}}}|{{nowrap|{{{percentchange|}}}}}}}
+  }}<!--
+
+-->{{#if:{{{votes2v|}}}
+   | <nowiki/>
+{{!}}-
+{{!}} colspan="3" {{!}} {{nobr|Final round votes}}
+{{!}} style="text-align:right;"{{!}} {{formatnum:{{{votes2v|}}}}}
+{{!}} 
+  }}<!--
+
+-->{{#if:{{{pourcentage2v|}}}
+   | <nowiki/>
+{{!}}-
+{{!}} colspan="4" style="border: 1px solid black; height:1em; position:relative;" {{!}} <span style="position:absolute; right:1px; text-shadow:1px 1px var(--color-inverted, white), -1px 1px var(--color-inverted, white), -1px -1px var(--color-inverted, white), 1px -1px var(--color-inverted, white);">{{formatnum:{{{pourcentage2v|}}}}}&#8239;%</span><div style="background:{{{couleur|}}}; width:{{{pourcentage2v|}}}%; overflow:hidden;">&#8239;</div>
+{{!}} style="text-align:right; width:1px;" class="difference" {{!}} {{nowrap|{{{percentchange2}}}}}
+
+  }}<!--
+
+-->{{#if:{{#if:{{{votes|}}}|{{{vote électoral|}}}}}
+   | <nowiki/>
+{{!}}-
+{{!}} colspan="3" {{!}} Grands électeurs
+{{!}} style="text-align:right;"{{!}} {{formatnum:{{{vote électoral|}}}}}
+{{!}} 
+  }}<!--
+
+-->{{#if:{{{sièges|}}}
+   | <nowiki/>
+{{!}}-
+{{!}} colspan="3" {{!}} Seats&nbsp;won
+{{!}} style="text-align:right;" {{!}} {{formatnum:{{{sièges|}}} }}
+{{!}} style="text-align:right" class="difference" {{!}} {{nowrap|{{{seatchange}}}}}
+   |{{#if:{{{sièges pré|}}}
+     | <nowiki/>
+{{!}}-
+{{!}} colspan="4" {{!}} Seats&nbsp;{{#if:{{{année précédent scrutin|}}}|{{{année précédent scrutin}}}|&nbsp;before&nbsp;election}}
+{{!}} style="text-align:right;" {{!}} {{{sièges pré|}}}
+    }}
+  }}<!--
+
+-->{{#if:{{{élus|}}}
+   | <nowiki/>
+{{!}}-
+{{!}} colspan="3" {{!}} {{ucfirst:{{{nom élus|}}}}}&nbsp;élu{{Oui non|{{{nom élus féminin|}}}|oui=e}}s
+{{!}} style="text-align:right;" {{!}} {{formatnum:{{{élus|}}} }}
+{{!}} style="text-align:right;" class="difference" {{!}} {{#expr: floor(({{{élus|0}}} - {{{élus pré|0}}}) * 10 + 0.5) / 10 }}
+   |{{#if:{{{élus pré|}}}
+     | <nowiki/>
+{{!}}-
+{{!}} colspan="4" {{!}} {{ucfirst:{{{nom élus|}}}}}&nbsp;{{#if:{{{année précédent scrutin|}}}|en&nbsp;{{{année précédent scrutin}}}|au&nbsp;scrutin&nbsp;précédent}}
+{{!}} style="text-align:right;" {{!}}{{{élus pré|}}}
+    }}
+  }}<!--
+
+-->{{#if:{{{élus2|}}}
+   | <nowiki/>
+{{!}}-
+{{!}} colspan="3" {{!}} {{ucfirst:{{{nom élus2|}}}}}&nbsp;élu{{Oui non|{{{nom élus2 féminin|}}}|oui=e}}s
+{{!}} style="text-align:right;" {{!}} {{formatnum:{{{élus2|}}} }}
+{{!}} style="text-align:right;" class="difference" {{!}} {{#expr: floor(({{{élus2|0}}} - {{{élus2 pré|0}}}) * 10 + 0.5) / 10 }}
+   |{{#if:{{{élus2 pré|}}}
+     | <nowiki/>
+{{!}}-
+{{!}} colspan="4" {{!}} {{ucfirst:{{{nom élus2|}}}}}&nbsp;{{#if:{{{année précédent scrutin|}}}|en&nbsp;{{{année précédent scrutin}}}|au&nbsp;scrutin&nbsp;précédent}}
+{{!}} style="text-align:right;" {{!}}{{{élus2 pré|}}}
+    }}
+  }}
+}}</includeonly><noinclude>
+{{Documentation}}
+</noinclude>
